@@ -2,66 +2,94 @@
   <h1>📡 Advanced Wireless Access Simulation — NOMA & RSMA</h1>
   <p><b>Course:</b> EE632: Advanced Topics in Communication Systems (IIT Guwahati, 2025)</p>
   <p>
-    <img alt="MATLAB" src="https://img.shields.io/badge/MATLAB-R202x-ff7f0e">
-    <img alt="Status" src="https://img.shields.io/badge/Project-Type%3A%20Academic-blue">
+    <img alt="MATLAB" src="https://img.shields.io/badge/MATLAB-R202x-orange">
+    <img alt="Language" src="https://img.shields.io/badge/Language-MATLAB-blue">
+    <img alt="Status" src="https://img.shields.io/badge/Type-Academic%20Project-success">
   </p>
 </div>
 
-<hr>
+<hr/>
 
-<h2>🚀 Overview</h2>
+<h2>🧭 Overview</h2>
 <p>
 This project implements <b>Monte Carlo simulations in MATLAB</b> for two modern multiple-access techniques:
-<b>NOMA</b> (near &amp; far users with interference) and <b>RSMA</b> (SISO downlink, 2 users). Tasks follow the
-EE632 Assignment-2 brief: derive/verify <b>outage probabilities (OP)</b> and evaluate <b>ergodic rates</b> vs. transmit power. :contentReference[oaicite:0]{index=0}
+<b>NOMA</b> (uplink/downlink users under interference) and <b>RSMA</b> (downlink SISO, two users).
+Deliverables include <b>analytical outage probability (OP)</b> derivation/verification for NOMA and
+<b>ergodic-rate / outage</b> analysis for RSMA as a function of transmit power, following the EE632 Assignment-2 brief. :contentReference[oaicite:0]{index=0}
 </p>
 
-<h2>🎯 What’s Included</h2>
+<h2>📚 Theory (Short)</h2>
+<h3>NOMA (Non-Orthogonal Multiple Access)</h3>
 <ul>
-  <li><b>NOMA:</b> Analytical OP for near user (closed-form) and Monte Carlo OP for near/far users; comparison plots.</li>
-  <li><b>RSMA:</b> Monte Carlo <i>ergodic rates</i> and <i>outage probabilities</i> for both users across transmit powers.</li>
+  <li>Users share time/frequency resources via power-domain multiplexing; receivers use SIC / decoding order.</li>
+  <li><b>Near vs Far user:</b> “Near” has stronger channel (lower path loss); “Far” has weaker channel. OP is the probability that user’s SINR falls below threshold.</li>
+  <li>Tasks: derive closed-form <b>near-user OP</b>; validate via simulation; compare far-user OP simulation vs analytical curve. :contentReference[oaicite:1]{index=1}</li>
 </ul>
 
-<h2>📂 Repo Structure (suggested)</h2>
+<h3>RSMA (Rate-Splitting Multiple Access)</h3>
+<ul>
+  <li>Transmitter splits messages into a <b>common</b> stream + <b>private</b> streams; users decode common first, then their private part.</li>
+  <li>SISO downlink with two users (D1, D2); evaluate <b>ergodic rates</b> and <b>outage</b> across transmit powers using SINR expressions. :contentReference[oaicite:2]{index=2}</li>
+</ul>
+
+<h2>✨ Features / Deliverables</h2>
+<ul>
+  <li><b>NOMA:</b> Closed-form near-user OP (analytic) + Monte Carlo OP for near/far users; joint plot vs transmit power.</li>
+  <li><b>RSMA:</b> Monte Carlo <b>ergodic rates</b> of D1 & D2; <b>outage probabilities</b> of D1 & D2; plots vs transmit power.</li>
+  <li>Reproducible MATLAB scripts and saved <code>.fig</code> (and optional <code>.png</code>) figures. :contentReference[oaicite:3]{index=3}</li>
+</ul>
+
+<h2>🧪 Assumptions (from Assignment)</h2>
+<ul>
+  <li><b>Channels:</b> h₁ ~ 𝒞𝒩(0, 1), h₂ ~ 𝒞𝒩(0, 1.5); noise variance = 1. :contentReference[oaicite:4]{index=4}</li>
+  <li><b>RSMA powers:</b> common s_c = 0.5, private s_p,1 = 0.3, s_p,2 = 0.2; E[|s_i|²]=1; i ∈ {c,(p,1),(p,2)}. :contentReference[oaicite:5]{index=5}</li>
+  <li><b>Thresholds:</b> γ_th,common at D1/D2 = 0.9; γ_th,private at D1/D2 = 0.5. :contentReference[oaicite:6]{index=6}</li>
+  <li><b>NOMA:</b> Two uplink & two downlink users; interference considered; far-user OP expression given in class (compare with sim). :contentReference[oaicite:7]{index=7}</li>
+</ul>
+
+<h2>🗂️ Repo Structure (suggested)</h2>
 <pre>
 /src
-  noma_near_op_analytic.m
-  noma_op_simulation.m
-  rsma_rates_outage_sim.m
+  noma_near_op_analytic.m          % closed-form near-user OP (function + demo)
+  noma_op_simulation.m             % MC OP for near & far users + comparison plot
+  rsma_rates_outage_sim.m          % MC ergodic rates & outage for D1/D2
 /figs
-  noma_outage_vs_power.fig
-  rsma_rates_vs_power.fig
-  rsma_outage_vs_power.fig
+  noma_outage_vs_power.fig/png
+  rsma_rates_vs_power.fig/png
+  rsma_outage_vs_power.fig/png
 README.md
 </pre>
 
 <h2>▶️ How to Run (MATLAB)</h2>
 <ol>
-  <li>Clone the repo and open <code>/src</code> in MATLAB.</li>
-  <li>Run <code>noma_near_op_analytic.m</code> to generate the near-user closed-form OP function/curve.</li>
-  <li>Run <code>noma_op_simulation.m</code> to simulate OP for near &amp; far users and save plots in <code>/figs</code>.</li>
-  <li>Run <code>rsma_rates_outage_sim.m</code> to compute RSMA ergodic rates &amp; outages; plots saved in <code>/figs</code>.</li>
+  <li>Open <code>/src</code> in MATLAB.</li>
+  <li>Run <code>noma_near_op_analytic.m</code> to generate the near-user analytic OP curve.</li>
+  <li>Run <code>noma_op_simulation.m</code> to simulate near/far OP and save plots in <code>/figs</code>.</li>
+  <li>Run <code>rsma_rates_outage_sim.m</code> to compute RSMA ergodic rates & outages; plots saved in <code>/figs</code>.</li>
 </ol>
 
-<h2>📊 Expected Outputs</h2>
+<h2>📊 Expected Results (placeholders)</h2>
 <ul>
-  <li><b>NOMA OP vs Power:</b> Near (sim vs analytic) and Far (sim vs analytic from class) on one figure.</li>
-  <li><b>RSMA:</b> (i) Ergodic rates of D1 &amp; D2; (ii) Outage probabilities of D1 &amp; D2.</li>
+  <li><b>NOMA:</b> OP vs transmit power with <i>near (sim vs analytic)</i> and <i>far (sim vs class analytic)</i> on one figure.</li>
+  <li><b>RSMA:</b> (i) Ergodic rates of D1 & D2 in one plot; (ii) Outage probabilities of D1 & D2 in one plot.</li>
 </ul>
-
-<h2>🖼️ Plot Placeholders</h2>
-<p>After running, add your saved figures (export as PNG) and reference them here:</p>
+<p>Add images after running (export PNGs):</p>
 <ul>
   <li><code>![NOMA OP vs Power](figs/noma_outage_vs_power.png)</code></li>
   <li><code>![RSMA Rates vs Power](figs/rsma_rates_vs_power.png)</code></li>
   <li><code>![RSMA Outage vs Power](figs/rsma_outage_vs_power.png)</code></li>
 </ul>
 
+<h2>✅ Requirements</h2>
+<ul>
+  <li>MATLAB (R202x+). Useful functions: <code>rand, randn, randi, mean, var, qfunc, semilogy, subplot, hist, stem, abs</code>. :contentReference[oaicite:8]{index=8}</li>
+</ul>
+
 <h2>🧩 Notes</h2>
 <ul>
-  <li>Follow assignment parameters for channels, thresholds, and powers exactly (see PDF brief). :contentReference[oaicite:1]{index=1}</li>
-  <li>Save MATLAB figures as <code>.fig</code> (and optional <code>.png</code>) for quick review.</li>
+  <li>Use the assignment’s SINR thresholds, power splits, and channel models exactly for fair comparison. :contentReference[oaicite:9]{index=9}</li>
+  <li>Save <code>.fig</code> as required and include <code>.m</code> scripts with figures for submission. :contentReference[oaicite:10]{index=10}</li>
 </ul>
 
 <h2>📜 Reference</h2>
-<p>EE632 Assignment-2 Instructions, 2 Apr 2025. :contentReference[oaicite:2]{index=2}</p>
+<p>EE632 Assignment-2 Instructions (2 Apr 2025). :contentReference[oaicite:11]{index=11}</p>
