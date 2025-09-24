@@ -91,5 +91,4 @@ README.md
   <li>Save <code>.fig</code> as required and include <code>.m</code> scripts with figures for submission. :contentReference[oaicite:10]{index=10}</li>
 </ul>
 
-<h2>📜 Reference</h2>
-<p>EE632 Assignment-2 Instructions (2 Apr 2025). :contentReference[oaicite:11]{index=11}</p>
+
