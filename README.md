@@ -73,20 +73,20 @@ README.md
   <li><b>NOMA:</b> OP vs transmit power with <i>near (sim vs analytic)</i> and <i>far (sim vs class analytic)</i> on one figure.</li>
   <li><b>RSMA:</b> (i) Ergodic rates of D1 & D2 in one plot; (ii) Outage probabilities of D1 & D2 in one plot.</li>
 </ul>
-<p>Add images after running (export PNGs):</p>
+
 <ul>
 
   <p align="center">
-  <img src="Project_Essentials/Code_1_Output.png" width="750" alt="UART IP Block Diagram">
+  <img src="Project_Essentials/Code_1_Output.jpg" width="750" alt="UART IP Block Diagram">
 </p>
 <p align="center">
-  <img src="Project_Essentials/Code_2_Output.png" width="750" alt="UART IP Block Diagram">
+  <img src="Project_Essentials/Code_2_Output.jpg" width="750" alt="UART IP Block Diagram">
 </p>
 <p align="center">
-  <img src="Project_Essentials/Code_3_a_Output.png" width="750" alt="UART IP Block Diagram">
+  <img src="Project_Essentials/Code_3_a_Output.jpg" width="750" alt="UART IP Block Diagram">
 </p>
 <p align="center">
-  <img src="Project_Essentials/Code_3_b_Output.png" width="750" alt="UART IP Block Diagram">
+  <img src="Project_Essentials/Code_3_b_Output.jpg" width="750" alt="UART IP Block Diagram">
 </p>
 </ul>
 
