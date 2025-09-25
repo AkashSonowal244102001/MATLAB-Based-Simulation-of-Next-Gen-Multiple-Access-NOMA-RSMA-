@@ -75,9 +75,19 @@ README.md
 </ul>
 <p>Add images after running (export PNGs):</p>
 <ul>
-  <li><code>![NOMA OP vs Power](figs/noma_outage_vs_power.png)</code></li>
-  <li><code>![RSMA Rates vs Power](figs/rsma_rates_vs_power.png)</code></li>
-  <li><code>![RSMA Outage vs Power](figs/rsma_outage_vs_power.png)</code></li>
+
+  <p align="center">
+  <img src="Project_Essentials/Code_1_Output.png" width="750" alt="UART IP Block Diagram">
+</p>
+<p align="center">
+  <img src="Project_Essentials/Code_2_Output.png" width="750" alt="UART IP Block Diagram">
+</p>
+<p align="center">
+  <img src="Project_Essentials/Code_3_a_Output.png" width="750" alt="UART IP Block Diagram">
+</p>
+<p align="center">
+  <img src="Project_Essentials/Code_3_b_Output.png" width="750" alt="UART IP Block Diagram">
+</p>
 </ul>
 
 <h2>✅ Requirements</h2>
